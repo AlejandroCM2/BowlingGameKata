@@ -1,6 +1,7 @@
-from tkinter import Tk, Frame, Label, Entry, messagebox
+from tkinter import Frame, Label, Entry, messagebox
 from tkinter.constants import TOP, X, SOLID, W, LEFT, END
 from tkinter.ttk import Button
+
 from customtkinter import CTk
 
 from bowlinggame.model.bowling import Game
@@ -106,7 +107,13 @@ class BowlingApp(CTk):
         self.unbind("<Visibility>")
 
     def reset(self):
-        pass
+        self.game.reset()
+        for frame in self.frames:
+            frame.update_rolls("")
+            frame.update_score("")
+
+        self.frames[0].activate()
+        self.add_roll_entry.delete(0)
 
     def add_roll(self):
         try:

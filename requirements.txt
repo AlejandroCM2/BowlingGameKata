@@ -1,2 +1,3 @@
 pytest==7.4.2
 customtkinter~=5.2.0
+bowling~=0.0.4
